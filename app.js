@@ -33,6 +33,6 @@ const fromYenToPound = function(valueInYen){
     let valueInPound = valueInEuro * oneEuroIs['GBP']
     return valueInPound;
 }
-console.log(fromDollarToYen(25),fromYenToPound(200))
+console.log(fromDollarToYen(3),fromYenToPound(200))
 
 module.exports = { sum, fromEuroToDollar, fromDollarToYen, fromYenToPound}

@@ -15,5 +15,25 @@ test("One euro should be 1.07 dollars", function() {
 test("200 Yen should be 1.11 pounds", function() {
     const { fromYenToPound } = require('./app.js');
 
-    expect(fromYenToPound(200)).toBe(1.1118210862619808);
+        // Use the function like its supposed to be used
+        const pounds = fromYenToPound(200);
+
+        // First convert Yen to Euro, then check that the amount 
+        // in euro is 0.87 pounds per euro ((200 / 156.5) * 0.87)
+        const expected = (200 / 156.5) * 0.87; 
+
+    expect(fromYenToPound(200)).toBeCloseTo(1.11);
+})
+
+test("3 dollars should be 438.78 yen", function() {
+    const { fromDollarToYen } = require('./app.js');
+
+        // Use the function like its supposed to be used
+        const dollars = fromDollarToYen(3);
+
+        // First convert Dollar to Euro, then check that the amount 
+        // in euro is 156.5 yen per euro ((3 / 1.07) * 156.5)
+        const expected = (3 / 1.07) * 156.5; 
+
+        expect(fromDollarToYen(3)).toBeCloseTo(438.78,1);
 })
